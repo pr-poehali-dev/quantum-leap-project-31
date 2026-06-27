@@ -234,6 +234,43 @@ export default function Index() {
           </div>
         </section>
 
+        <section id="reviews" className="flex min-w-full snap-start items-center justify-center px-4 py-20">
+          <div className="mx-auto max-w-4xl w-full">
+            <div className="mx-auto mb-10 max-w-2xl text-center">
+              <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
+                Отзывы
+              </h1>
+              <p className="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">
+                Что говорят наши клиенты
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {[
+                { name: "Леонид Ширнин", initials: "ЛШ", date: "12 января 2025", text: "Все огонь )", rating: 5 },
+                { name: "Екатерина Коновалова", initials: "ЕК", date: "10 октября 2023", text: "Классное место!!! 😘", rating: 5 },
+              ].map((review) => (
+                <div key={review.name} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white font-semibold font-open-sans-custom text-sm flex-shrink-0">
+                      {review.initials}
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold font-open-sans-custom [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)]">{review.name}</p>
+                      <p className="text-gray-400 text-xs font-open-sans-custom">{review.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1">
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <span key={i} className="text-yellow-400 text-lg">★</span>
+                    ))}
+                  </div>
+                  <p className="text-gray-300 font-open-sans-custom leading-relaxed [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]">{review.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section
           id="contact"
           ref={contactSectionRef}
