@@ -235,30 +235,35 @@ export default function Index() {
         </section>
 
         <section id="gallery" className="flex min-w-full snap-start items-center justify-center px-4 py-20">
-          <div className="mx-auto max-w-5xl w-full">
-            <div className="mx-auto mb-10 max-w-2xl text-center">
+          <div className="mx-auto max-w-5xl w-full space-y-10">
+            <div className="text-center">
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
-                Наши работы
+                Фото
               </h1>
-              <p className="text-gray-300 mt-4 text-sm md:text-base font-open-sans-custom [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]">
-                Фото из нашего салона
-              </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/135c8794-d931-42d1-9d86-a79406afbe53.png", alt: "Салон красоты" },
-                { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/a82457a5-90ec-4b34-82e1-2bb6c2eea3de.png", alt: "Окрашивание" },
-                { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/c1f74f77-7de2-4a30-845e-98fe4c4f7148.png", alt: "Кератин" },
-                { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/b3e764ef-f20a-46ca-aa2c-a43fcd9e20ef.png", alt: "Стрижка" },
-              ].map((photo) => (
-                <div key={photo.url} className="overflow-hidden rounded-2xl border border-white/10 aspect-[3/4]">
-                  <img
-                    src={photo.url}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
+
+            <div>
+              <h2 className="text-lg font-semibold text-white/60 font-open-sans-custom mb-4 uppercase tracking-widest">Внутри</h2>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="overflow-hidden rounded-2xl border border-white/10 aspect-video">
+                  <img src="https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/135c8794-d931-42d1-9d86-a79406afbe53.png" alt="Внутри салона" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
-              ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-white/60 font-open-sans-custom mb-4 uppercase tracking-widest">Работы</h2>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/a82457a5-90ec-4b34-82e1-2bb6c2eea3de.png", alt: "Окрашивание" },
+                  { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/c1f74f77-7de2-4a30-845e-98fe4c4f7148.png", alt: "Кератин" },
+                  { url: "https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/b3e764ef-f20a-46ca-aa2c-a43fcd9e20ef.png", alt: "Стрижка" },
+                ].map((photo) => (
+                  <div key={photo.url} className="overflow-hidden rounded-2xl border border-white/10 aspect-[3/4]">
+                    <img src={photo.url} alt={photo.alt} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
