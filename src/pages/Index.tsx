@@ -163,7 +163,7 @@ export default function Index() {
               </p>
 
               <div className="flex justify-center">
-                <ShinyButton className="px-8 py-3 text-base">начать</ShinyButton>
+                <ShinyButton className="px-8 py-3 text-base" onClick={() => window.location.href = 'tel:+79277357227'}>Позвонить</ShinyButton>
               </div>
             </div>
           </div>
