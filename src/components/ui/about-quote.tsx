@@ -14,13 +14,21 @@ export function AboutQuote() {
 
         <div className="relative z-20 mx-auto max-w-5xl rounded-[40px] py-6 md:p-10 xl:py-20">
 
-          <div className="space-y-4 md:space-y-6">
-            <p className="text-base md:text-xl lg:text-2xl xl:text-3xl text-white/90 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-open-sans-custom leading-relaxed">
-              В PromptCraft мы верим, что создание впечатляющих цифровых продуктов должно быть доступно каждому. Наша ИИ-платформа превращает ваши идеи в готовые к продакшену интерфейсы за считанные минуты.
-            </p>
-            <p className="text-base md:text-xl lg:text-2xl xl:text-3xl text-white/90 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-open-sans-custom leading-relaxed">
-              Дизайнер, исследующий новые концепции, разработчик, ускоряющий свой процесс, или предприниматель, воплощающий видение в жизнь — PromptCraft станет вашим творческим партнером в эпоху ИИ.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              "Кератиновое выпрямление",
+              "Сложное окрашивание",
+              "Ботокс волос",
+              "Жен. стрижка от 500 ₽",
+              "Муж. стрижка от 500 ₽",
+            ].map((service) => (
+              <div key={service} className="flex items-center gap-4">
+                <div className="h-px w-8 bg-white/40 flex-shrink-0" />
+                <p className="text-base md:text-xl lg:text-2xl text-white/90 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-open-sans-custom">
+                  {service}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
