@@ -274,7 +274,7 @@ export default function Index() {
                 {
                   icon: MapPinIcon,
                   label: "Адрес",
-                  value: "Москва, Россия",
+                  value: "Улица 70 лет Октября, 63, 2 этаж, 15-й квартал м-н, Автозаводский район, Тольятти, Самарская область, 445044",
                   className: "col-span-2",
                 },
               ]}
