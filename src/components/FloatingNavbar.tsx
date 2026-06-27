@@ -59,13 +59,7 @@ export function FloatingNavbar() {
             </button>
           </div>
 
-          {/* CTA Button */}
-          <Button
-            size="sm"
-            className="bg-white text-black hover:bg-gray-100 [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] font-open-sans-custom"
-          >
-            Начать
-          </Button>
+
         </div>
       </div>
     </nav>
