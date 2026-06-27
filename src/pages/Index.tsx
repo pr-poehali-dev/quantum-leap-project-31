@@ -99,8 +99,12 @@ export default function Index() {
                 Салон красоты<br />Парикмахерские
               </h1>
 
-              <p className="mb-8 mx-auto max-w-2xl text-pretty leading-relaxed text-gray-300 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-thin font-open-sans-custom tracking-wide text-xl">
+              <p className="mb-4 mx-auto max-w-2xl text-pretty leading-relaxed text-gray-300 [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)] font-thin font-open-sans-custom tracking-wide text-xl">
                 сложное окрашивание, кератин, ботокс волос
+              </p>
+
+              <p className="mb-8 text-2xl md:text-3xl font-bold tracking-[0.3em] text-white/80 font-open-sans-custom [text-shadow:_0_2px_12px_rgb(0_0_0_/_60%)] uppercase">
+                L'ORÉAL
               </p>
 
               <div className="flex justify-center">
