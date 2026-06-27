@@ -243,6 +243,15 @@ export default function Index() {
             </div>
 
             <div>
+              <h2 className="text-lg font-semibold text-white/60 font-open-sans-custom mb-4 uppercase tracking-widest">Снаружи</h2>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="overflow-hidden rounded-2xl border border-white/10 aspect-video">
+                  <img src="https://cdn.poehali.dev/projects/f8ff1f3e-9729-4d24-adb6-48a60f311a21/bucket/60271f4e-14ce-4695-9a62-5086ecf4ad1f.png" alt="Снаружи" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+              </div>
+            </div>
+
+            <div>
               <h2 className="text-lg font-semibold text-white/60 font-open-sans-custom mb-4 uppercase tracking-widest">Внутри</h2>
               <div className="grid grid-cols-1 gap-4">
                 <div className="overflow-hidden rounded-2xl border border-white/10 aspect-video">
