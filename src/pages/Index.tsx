@@ -269,7 +269,7 @@ export default function Index() {
                 {
                   icon: PhoneIcon,
                   label: "Телефон",
-                  value: "+7 (495) 123-45-67",
+                  value: "+7‒927‒735‒72‒27",
                 },
                 {
                   icon: MapPinIcon,
