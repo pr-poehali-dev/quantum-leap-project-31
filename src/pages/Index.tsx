@@ -13,11 +13,24 @@ export default function Index() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const pricingSectionRef = useRef<HTMLDivElement>(null)
   const aboutSectionRef = useRef<HTMLDivElement>(null)
+  const gallerySectionRef = useRef<HTMLDivElement>(null)
+  const reviewsSectionRef = useRef<HTMLDivElement>(null)
   const contactSectionRef = useRef<HTMLDivElement>(null)
+
+  // sections: 0=home, 1=features, 2=pricing, 3=about, 4=gallery, 5=reviews, 6=contact
+  const TOTAL_SECTIONS = 7
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current
     if (!scrollContainer) return
+
+    const scrollableRefs: Record<number, React.RefObject<HTMLDivElement>> = {
+      2: pricingSectionRef,
+      3: aboutSectionRef,
+      4: gallerySectionRef,
+      5: reviewsSectionRef,
+      6: contactSectionRef,
+    }
 
     const handleWheel = (e: WheelEvent) => {
       const delta = e.deltaY
@@ -25,94 +38,26 @@ export default function Index() {
       const containerWidth = scrollContainer.offsetWidth
       const currentSection = Math.round(currentScroll / containerWidth)
 
-      if (currentSection === 2 && pricingSectionRef.current) {
-        const pricingSection = pricingSectionRef.current
-        const isAtTop = pricingSection.scrollTop === 0
-        const isAtBottom = pricingSection.scrollTop + pricingSection.clientHeight >= pricingSection.scrollHeight - 1
+      const ref = scrollableRefs[currentSection]
+      if (ref?.current) {
+        const el = ref.current
+        const isAtTop = el.scrollTop === 0
+        const isAtBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1
 
-        if (delta > 0 && !isAtBottom) {
-          return
-        }
-
-        if (delta < 0 && !isAtTop) {
-          return
-        }
+        if (delta > 0 && !isAtBottom) return
+        if (delta < 0 && !isAtTop) return
 
         if (delta < 0 && isAtTop) {
           e.preventDefault()
-          scrollContainer.scrollTo({
-            left: 1 * containerWidth,
-            behavior: "smooth",
-          })
+          scrollContainer.scrollTo({ left: (currentSection - 1) * containerWidth, behavior: "smooth" })
           return
         }
 
         if (delta > 0 && isAtBottom) {
           e.preventDefault()
-          scrollContainer.scrollTo({
-            left: 3 * containerWidth,
-            behavior: "smooth",
-          })
-          return
-        }
-      }
-
-      if (currentSection === 3 && aboutSectionRef.current) {
-        const aboutSection = aboutSectionRef.current
-        const isAtTop = aboutSection.scrollTop === 0
-        const isAtBottom = aboutSection.scrollTop + aboutSection.clientHeight >= aboutSection.scrollHeight - 1
-
-        if (delta > 0 && !isAtBottom) {
-          return
-        }
-
-        if (delta < 0 && !isAtTop) {
-          return
-        }
-
-        if (delta < 0 && isAtTop) {
-          e.preventDefault()
-          scrollContainer.scrollTo({
-            left: 2 * containerWidth,
-            behavior: "smooth",
-          })
-          return
-        }
-
-        if (delta > 0 && isAtBottom) {
-          e.preventDefault()
-          scrollContainer.scrollTo({
-            left: 4 * containerWidth,
-            behavior: "smooth",
-          })
-          return
-        }
-      }
-
-      if (currentSection === 4 && contactSectionRef.current) {
-        const contactSection = contactSectionRef.current
-        const isAtTop = contactSection.scrollTop === 0
-        const isAtBottom = contactSection.scrollTop + contactSection.clientHeight >= contactSection.scrollHeight - 1
-
-        if (delta > 0 && !isAtBottom) {
-          return
-        }
-
-        if (delta < 0 && !isAtTop) {
-          return
-        }
-
-        if (delta < 0 && isAtTop) {
-          e.preventDefault()
-          scrollContainer.scrollTo({
-            left: 3 * containerWidth,
-            behavior: "smooth",
-          })
-          return
-        }
-
-        if (delta > 0 && isAtBottom) {
-          e.preventDefault()
+          if (currentSection < TOTAL_SECTIONS - 1) {
+            scrollContainer.scrollTo({ left: (currentSection + 1) * containerWidth, behavior: "smooth" })
+          }
           return
         }
       }
@@ -122,15 +67,11 @@ export default function Index() {
       if (Math.abs(delta) > 10) {
         let targetSection = currentSection
         if (delta > 0) {
-          targetSection = Math.min(currentSection + 1, 4)
+          targetSection = Math.min(currentSection + 1, TOTAL_SECTIONS - 1)
         } else {
           targetSection = Math.max(currentSection - 1, 0)
         }
-
-        scrollContainer.scrollTo({
-          left: targetSection * containerWidth,
-          behavior: "smooth",
-        })
+        scrollContainer.scrollTo({ left: targetSection * containerWidth, behavior: "smooth" })
       }
     }
 
@@ -234,7 +175,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section id="gallery" className="flex min-w-full snap-start items-center justify-center px-4 py-20">
+        <section id="gallery" ref={gallerySectionRef} className="relative min-w-full snap-start overflow-y-auto px-4 pt-24 pb-20 hide-scrollbar" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           <div className="mx-auto max-w-5xl w-full space-y-10">
             <div className="text-center">
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
@@ -277,7 +218,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section id="reviews" className="flex min-w-full snap-start items-center justify-center px-4 py-20">
+        <section id="reviews" ref={reviewsSectionRef} className="relative min-w-full snap-start overflow-y-auto px-4 pt-24 pb-20 hide-scrollbar" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           <div className="mx-auto max-w-4xl w-full">
             <div className="mx-auto mb-10 max-w-2xl text-center">
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl text-white [text-shadow:_0_4px_20px_rgb(0_0_0_/_60%)] font-open-sans-custom">
