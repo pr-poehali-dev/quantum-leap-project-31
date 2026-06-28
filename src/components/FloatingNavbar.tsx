@@ -10,10 +10,10 @@ export function FloatingNavbar() {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 py-4">
-      <div className="mx-auto max-w-7xl rounded-2xl border-2 border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
-        <div className="flex items-center justify-between">
+      <div className="mx-auto max-w-7xl rounded-2xl border-2 border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm">
+        <div className="flex items-center gap-4">
           {/* Logo */}
-          <button onClick={() => scrollToSection("home")} className="cursor-pointer">
+          <button onClick={() => scrollToSection("home")} className="cursor-pointer flex-shrink-0">
             <div className="flex items-center gap-2 text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_40%)]">
               <svg
                 fill="currentColor"
@@ -30,42 +30,39 @@ export function FloatingNavbar() {
             </div>
           </button>
 
-          {/* Navigation Links */}
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Navigation Links — scrollable on mobile */}
+          <div className="flex items-center gap-5 overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             <button
               onClick={() => scrollToSection("features")}
-              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
+              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] whitespace-nowrap flex-shrink-0"
             >
               Режим работы
             </button>
-
             <button
               onClick={() => scrollToSection("about")}
-              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
+              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] whitespace-nowrap flex-shrink-0"
             >
               О нас
             </button>
             <button
               onClick={() => scrollToSection("reviews")}
-              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
+              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] whitespace-nowrap flex-shrink-0"
             >
               Отзывы
             </button>
             <button
               onClick={() => scrollToSection("gallery")}
-              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
+              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] whitespace-nowrap flex-shrink-0"
             >
               Фото
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)]"
+              className="text-sm font-open-sans-custom text-gray-300 transition-colors hover:text-white [text-shadow:_0_2px_6px_rgb(0_0_0_/_40%)] whitespace-nowrap flex-shrink-0"
             >
               Контакты
             </button>
           </div>
-
-
         </div>
       </div>
     </nav>
